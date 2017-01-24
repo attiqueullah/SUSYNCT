@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define AppDelegateAccessor ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property (strong, nonatomic) SWRevealViewController *viewController;
+-(void)goToDashboard:(UIViewController*)controller;
++(void)sendUserLocationToServer;
 @end
 
