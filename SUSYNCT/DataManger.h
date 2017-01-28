@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, ProgressHUDType) {
 };
 
 @interface DataManger : NSObject
+@property(nonatomic,readonly)BOOL allowLocation;
 +(id)sharedInstance;
 
 
@@ -33,4 +34,6 @@ typedef NS_ENUM(NSUInteger, ProgressHUDType) {
 -(void)getDepartmentsWithId:(NSString*)sessionId WithCompletionBlock:(void (^)(NSArray*, NSError *))completionBlock;
 #pragma mark GET CLASSES Service
 -(void)getClassesWithId:(NSString*)Id WithCompletionBlock:(void (^)(NSArray*, NSError *))completionBlock;
+#pragma mark Get User Location Availability
+-(void)getLocationUpdatewithCompletionBlock:(void(^)(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status,NSString* error))completionBlock;
 @end

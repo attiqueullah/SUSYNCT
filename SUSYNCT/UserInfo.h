@@ -14,6 +14,7 @@
 @property(nonatomic,strong)NSString* username;
 @property(nonatomic,strong)NSString* email;
 @property(nonatomic,strong)NSString* password;
+@property(nonatomic,strong)NSString* mobile;
 @property(nonatomic)BOOL validEmail;
 @property(nonatomic)BOOL validUsername;
 @property(nonatomic)BOOL isAgreeTerms;

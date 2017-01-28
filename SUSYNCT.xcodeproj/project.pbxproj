@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0223A0781E0A58FA0067F533 /* calendar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0223A0771E0A58FA0067F533 /* calendar-7.png */; };
+		022DEFEF1E3B9D830046ECF9 /* TermsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 022DEFEE1E3B9D830046ECF9 /* TermsInfo.m */; };
+		022DEFF21E3CF4AF0046ECF9 /* NewScheduleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022DEFF11E3CF4AF0046ECF9 /* NewScheduleControllerViewController.m */; };
 		02311F1D1DFFD6E7000F9FFD /* ResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02311F1C1DFFD6E7000F9FFD /* ResetPasswordController.m */; };
 		02311F2A1DFFFD53000F9FFD /* ScheduleSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02311F291DFFFD53000F9FFD /* ScheduleSetupController.m */; };
 		02311F2D1DFFFEA1000F9FFD /* LabelCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02311F2C1DFFFEA1000F9FFD /* LabelCollectionCell.m */; };
@@ -85,13 +87,16 @@
 		028C047F1E32655C009F04C2 /* EmailVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028C047E1E32655C009F04C2 /* EmailVerificationController.m */; };
 		0296A2181E01236300E0A853 /* APIS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2171E01236300E0A853 /* APIS.m */; };
 		0296A21B1E01768300E0A853 /* DepartmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A21A1E01768300E0A853 /* DepartmentInfo.m */; };
-		0296A21E1E017D5300E0A853 /* NewClassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A21D1E017D5300E0A853 /* NewClassController.m */; };
 		0296A2211E01811400E0A853 /* CourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2201E01811400E0A853 /* CourseInfo.m */; };
 		ED20CB5F24E0B9DA53B0C526 /* libPods-SUSYNCT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD78D341009531A24365440 /* libPods-SUSYNCT.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0223A0771E0A58FA0067F533 /* calendar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-7.png"; sourceTree = "<group>"; };
+		022DEFED1E3B9D830046ECF9 /* TermsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsInfo.h; sourceTree = "<group>"; };
+		022DEFEE1E3B9D830046ECF9 /* TermsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsInfo.m; sourceTree = "<group>"; };
+		022DEFF01E3CF4AF0046ECF9 /* NewScheduleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewScheduleControllerViewController.h; sourceTree = "<group>"; };
+		022DEFF11E3CF4AF0046ECF9 /* NewScheduleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewScheduleControllerViewController.m; sourceTree = "<group>"; };
 		02311F1B1DFFD6E7000F9FFD /* ResetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordController.h; sourceTree = "<group>"; };
 		02311F1C1DFFD6E7000F9FFD /* ResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordController.m; sourceTree = "<group>"; };
 		02311F281DFFFD53000F9FFD /* ScheduleSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleSetupController.h; sourceTree = "<group>"; };
@@ -211,8 +216,6 @@
 		0296A2171E01236300E0A853 /* APIS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIS.m; sourceTree = "<group>"; };
 		0296A2191E01768300E0A853 /* DepartmentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentInfo.h; sourceTree = "<group>"; };
 		0296A21A1E01768300E0A853 /* DepartmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentInfo.m; sourceTree = "<group>"; };
-		0296A21C1E017D5300E0A853 /* NewClassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewClassController.h; sourceTree = "<group>"; };
-		0296A21D1E017D5300E0A853 /* NewClassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewClassController.m; sourceTree = "<group>"; };
 		0296A21F1E01811400E0A853 /* CourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInfo.h; sourceTree = "<group>"; };
 		0296A2201E01811400E0A853 /* CourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInfo.m; sourceTree = "<group>"; };
 		7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.release.xcconfig"; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				0296A2201E01811400E0A853 /* CourseInfo.m */,
 				0264A1041E05332F000ED0FC /* SubCourseInfo.h */,
 				0264A1051E05332F000ED0FC /* SubCourseInfo.m */,
+				022DEFED1E3B9D830046ECF9 /* TermsInfo.h */,
+				022DEFEE1E3B9D830046ECF9 /* TermsInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				02311F201DFFD8D3000F9FFD /* Authentication */,
 				02311F231DFFDC44000F9FFD /* Storyboards */,
 				0231A5941DF93E65003D63DB /* Supporting Files */,
+				0231A5AB1DF96F00003D63DB /* PrefixHeader.pch */,
 				0231A5DA1DFA77DA003D63DB /* Cells */,
 				02311F211DFFD8E1000F9FFD /* Manager */,
 				02311F221DFFD8E8000F9FFD /* Model */,
@@ -393,7 +399,6 @@
 				0231A5CD1DF98B60003D63DB /* eye.png */,
 				0231A5CF1DF98D31003D63DB /* eye-slash.png */,
 				0231A5951DF93E65003D63DB /* main.m */,
-				0231A5AB1DF96F00003D63DB /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -531,8 +536,8 @@
 				023A860B1E17979800D291FC /* Storyboard */,
 				02311F281DFFFD53000F9FFD /* ScheduleSetupController.h */,
 				02311F291DFFFD53000F9FFD /* ScheduleSetupController.m */,
-				0296A21C1E017D5300E0A853 /* NewClassController.h */,
-				0296A21D1E017D5300E0A853 /* NewClassController.m */,
+				022DEFF01E3CF4AF0046ECF9 /* NewScheduleControllerViewController.h */,
+				022DEFF11E3CF4AF0046ECF9 /* NewScheduleControllerViewController.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -876,14 +881,15 @@
 				023A85DF1E14F93400D291FC /* SearchGroupController.m in Sources */,
 				02414B5F1E139C3C0060C26F /* EventsViewController.m in Sources */,
 				0231A59C1DF93E65003D63DB /* ViewController.m in Sources */,
-				0296A21E1E017D5300E0A853 /* NewClassController.m in Sources */,
 				023A85DC1E14F4CF00D291FC /* AddGroupsController.m in Sources */,
 				023A85D51E14EFEF00D291FC /* GroupsViewController.m in Sources */,
 				023A86071E17954800D291FC /* CalendarSettingsController.m in Sources */,
 				023A85F21E165AEC00D291FC /* SettingsViewController.m in Sources */,
 				0231A5D31DF99231003D63DB /* SignUpViewController.m in Sources */,
+				022DEFEF1E3B9D830046ECF9 /* TermsInfo.m in Sources */,
 				0231A5991DF93E65003D63DB /* AppDelegate.m in Sources */,
 				023A85FA1E178FA200D291FC /* HelpViewController.m in Sources */,
+				022DEFF21E3CF4AF0046ECF9 /* NewScheduleControllerViewController.m in Sources */,
 				02414B541E1244CE0060C26F /* FriendsViewController.m in Sources */,
 				02414B641E13A2930060C26F /* EventDetailController.m in Sources */,
 				0296A2211E01811400E0A853 /* CourseInfo.m in Sources */,

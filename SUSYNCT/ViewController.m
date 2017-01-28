@@ -67,8 +67,9 @@
 -(void)btnSignIn:(UIButton*)sender
 {
     [self hideKeyboard];
-   
-    if (self.userData.username.length==0 ) {
+    [NSUserDefaults saveObject:[NSDate date] forKey:@"loginDate"];
+    [AppDelegateAccessor goToDashboard:self];
+    /*if (self.userData.username.length==0 ) {
         [DATAMANAGER showWithStatus:@"Please Enter UserName" withType:ERROR];
         return;
     }
@@ -83,7 +84,7 @@
             [NSUserDefaults saveObject:[NSDate date] forKey:@"loginDate"];
             [AppDelegateAccessor goToDashboard:self];
         }
-    }];
+    }];*/
 
 }
 -(void)btnSignUp:(UIButton*)sender

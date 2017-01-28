@@ -112,6 +112,7 @@
          [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
              controller.view.userInteractionEnabled = YES;
              if (!error) {
+                 [AppDelegate sendUserLocationToServer];
                  [SVProgressHUD dismiss];
                  
                  completionBlock(user,succeeded,nil);
@@ -136,6 +137,7 @@
          [DATAMANAGER showWithStatus:@"Please wait..." withType:STATUS];
          [PFUser logInWithUsernameInBackground:username password:password
                                          block:^(PFUser *user, NSError *error) {
+                                             [AppDelegate sendUserLocationToServer];
                                              [SVProgressHUD dismiss];
                                              controller.view.userInteractionEnabled = YES;
                                              if (user) {
@@ -148,6 +150,18 @@
         }];
     }];
     
+}
+#pragma mark save Object
+-(void)saveParseDataWithObject:(PFObject*)obj withCompletionBlock:(void(^)(BOOL succeeded, NSError *error))completionBlock
+{
+    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            completionBlock(YES,nil);
+        }
+        else {
+            completionBlock(NO,error);
+        }
+    }];
 }
 
 #pragma mark Intialize Push Method

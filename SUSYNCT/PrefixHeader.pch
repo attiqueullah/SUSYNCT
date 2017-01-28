@@ -29,7 +29,7 @@
 #import "FriendsViewController.h"
 #import "MSCellAccessory.h"
 #import "ScheduleSetupController.h"
-#import "NewClassController.h"
+#import "NewScheduleControllerViewController.h"
 #import "SportsViewController.h"
 #import "EventsViewController.h"
 #import "GroupsViewController.h"
@@ -55,6 +55,7 @@
 #import "DepartmentInfo.h"
 #import "CourseInfo.h"
 #import "SubCourseInfo.h"
+#import "TermsInfo.h"
 
 #pragma mark Storyboards
 #define MAIN         [UIStoryboard storyboardWithName:@"Main"                    bundle:nil]
@@ -106,6 +107,7 @@
 #pragma mark NAVIGATIONS CONSTANTS
 #define NAV_LOGIN              @"LoginNavigation"
 #define NAV_MAIN               @"MainNavigation"
+#define NAV_STUDENT            @"StudentNavigation"
 #define NAV_SPORTS             @"SportsNavigation"
 #define NAV_FRIENDS            @"FriendsNavigation"
 #define NAV_EVENTS             @"EventsNavigation"

@@ -340,22 +340,7 @@
 
     if (indexPath.section==1) {
         if (indexPath.row==0) {
-            LeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             [self goToCalendarSetup:cell];
-        }
-        else
-        {
-            NSMutableArray* arr = [NSMutableArray new];
-            for (int i=1; i<=3; i++) {
-                [arr addObject:[NSIndexPath indexPathForRow:i inSection:1]];
-            }
-            [self.tblData beginUpdates];
-            selectedMenu = 3;
-            isSelected= NO;
-            cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR colors:@[[UIColor whiteColor]]];
-            [self.tblData deleteRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
-            [self.tblData endUpdates];
-
         }
         if (indexPath.row==(1-selectedMenu)) {
             ///Go to Cync Calendar ///
@@ -405,6 +390,21 @@
     }
     _presentedRow = indexPath.row;
     _presentedSection = indexPath.section;
+    
+    if (indexPath.row!=0) {
+        NSMutableArray* arr = [NSMutableArray new];
+        for (int i=1; i<=3; i++) {
+            [arr addObject:[NSIndexPath indexPathForRow:i inSection:1]];
+        }
+        [self.tblData beginUpdates];
+        selectedMenu = 3;
+        isSelected= NO;
+        cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR colors:@[[UIColor whiteColor]]];
+        [self.tblData deleteRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
+        [self.tblData endUpdates];
+
+    }
+   
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {

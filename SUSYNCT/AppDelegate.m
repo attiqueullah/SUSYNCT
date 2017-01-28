@@ -69,6 +69,25 @@
 }
 +(void)sendUserLocationToServer
 {
+    [DATAMANAGER getLocationUpdatewithCompletionBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status,NSString* error){
+        if (!error) {
+            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
+            [AppDelegate updateLocationOnParse:point];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:error];
+        }
+    }];
+}
++(void)updateLocationOnParse:(PFGeoPoint*)dict
+{
+    PFUser* user = [PFUser currentUser];
+    user[@"usrLocation"] = dict;
+    [PARSEMANAGER saveParseDataWithObject:user withCompletionBlock:^(BOOL isSave , NSError* error){
+        
+    }];
+    
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

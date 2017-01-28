@@ -129,11 +129,17 @@
         }
     }
     
-    
+     if (self.userData.mobile.length==0) {
+     [DATAMANAGER showWithStatus:@"Please Enter Mobile Number" withType:ERROR];
+     return;
+     
+     }
     if (!self.userData.isAgreeTerms) {
         [DATAMANAGER showWithStatus:@"Please Agree To Terms & Conditions" withType:ERROR];
         return;
     }
+     
+     [self performSegueWithIdentifier:@"email_verifi" sender:self.userData];
     */
 }
 -(void)btnSignUpFacebook:(UIButton*)sender
@@ -148,12 +154,6 @@
     }];
 
 }
--(void)btnSignUpGoogle:(UIButton*)sender
-{
-}
--(void)btnSignUpTwitter:(UIButton*)sender
-{
-}
 - (IBAction)selectStudentOption:(UISwitch*)sender {
     self.userData.isStudent = sender.isOn;
 }
@@ -163,7 +163,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     // Return the number of sections.
-    return 8;
+    return 9;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -186,81 +186,6 @@
         return cell;
         
     }
-    /*if (indexPath.section==3) {
-        if (indexPath.row==0) {
-            TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
-            
-            cell.txtInput1.placeholder = @"Username";
-            cell.txtInput1.keyboardType = UIKeyboardTypeEmailAddress;
-            cell.btnShowPassword.hidden = YES;
-            cell.activityCell.hidden = YES;
-            [cell.txtInput1 setBk_didEndEditingBlock:^(UITextField *textField) {
-                self.userData.validEmail = NO;
-                self.userData.email = textField.text;
-            }];
-            [cell.txtInput1 setBk_shouldEndEditingBlock:^BOOL(UITextField *textField){
-                
-                if ([DATAMANAGER NSStringIsValidEmail:textField.text]) {
-                    [cell.activityCell startAnimating];
-                    cell.activityCell.hidden = NO;
-                    PFQuery* query = [PFUser query];
-                    [query whereKey:@"email" equalTo:textField.text];
-                    [query findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError * error){
-                        
-                        [cell.activityCell stopAnimating];
-                        cell.activityCell.hidden = YES;
-                        
-                        if ( [textField.text isEqualToString:[PFUser currentUser][@"email"]]) {
-                            [cell.btnShowPassword setBackgroundImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-                            self.userData.validEmail = YES;
-                            cell.btnShowPassword.hidden = NO;
-                            self.userData.email = textField.text;
-                            return;
-                        }
-                        
-                        if (objects.count>0) {
-                            self.userData.validEmail = NO;
-                            [cell.txtInput1 becomeFirstResponder];
-                            [DATAMANAGER showWithStatus:@"Email already taken" withType:ERROR];
-                            
-                        }
-                        else
-                        {
-                            [cell.btnShowPassword setBackgroundImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-                            cell.btnShowPassword.hidden = NO;
-                            self.userData.validEmail = YES;
-                            self.userData.email = textField.text;
-                        }
-                    }];
-                    return YES;
-                }
-                else
-                {
-                    if (textField.text.length>0) {
-                        [DATAMANAGER showWithStatus:@"Invalid email address" withType:ERROR];
-                    }
-                    return YES;
-                    
-                }
-                
-            }];
-            // [cell.btnShowPassword addTarget:self action:@selector(showPassword:) forControlEvents:UIControlEventTouchUpInside];
-            cell.btnShowPassword.tag = 0;
-            return cell;
-            
-
-        }
-        else
-        {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValidateCell" forIndexPath:indexPath];
-            cell.textLabel.text = @"Email Address is required to recover lost or forgotten password.";
-            cell.textLabel.font = [UIFont fontWithName:AvenirRegular size:11.0];
-            cell.textLabel.textColor = [UIColor redColor];
-            cell.textLabel.numberOfLines = 2.0;
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            return cell;
-        }
-            }*/
     if (indexPath.section==1) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
         
@@ -324,11 +249,25 @@
         return cell;
     }
     if (indexPath.section==3) {
-        TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell" forIndexPath:indexPath];
+        TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
+        
+        cell.txtInput1.placeholder = @"Mobile#";
+        cell.txtInput1.keyboardType = UIKeyboardTypePhonePad;
+        cell.txtInput1.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        cell.btnShowPassword.hidden = YES;
+        cell.activityCell.hidden = YES;
+        [cell.txtInput1 setBk_didEndEditingBlock:^(UITextField *textField) {
+            self.userData.mobile = textField.text;
+        }];
         return cell;
     }
 
     if (indexPath.section==4) {
+        TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell" forIndexPath:indexPath];
+        return cell;
+    }
+
+    if (indexPath.section==5) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"conditionCell" forIndexPath:indexPath];
         cell.btnAction.tag = 2;
         [cell createLink];
@@ -336,17 +275,17 @@
         [cell.btnAction addTarget:self action:@selector(btnTermsAndConditions:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
-    if (indexPath.section==5) {
+    if (indexPath.section==6) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
         [cell.btnAction addTarget:self action:@selector(btnSignUp:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnAction setTitle:@"SignUp" forState:UIControlStateNormal];
         return cell;
     }
-    if (indexPath.section==6) {
+    if (indexPath.section==7) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"seperatorCell" forIndexPath:indexPath];
         return cell;
     }
-    if (indexPath.section==7) {
+    if (indexPath.section==8) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
         [cell.btnAction addTarget:self action:@selector(btnSignUpFacebook:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -376,9 +315,7 @@
     return v;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section==0) {
-        return 20.0;
-    }
+    
     if (section==5) {
         return 10.0f;
     }

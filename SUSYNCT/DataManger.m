@@ -10,6 +10,8 @@
 #import "Reachability.h"
 
 @interface DataManger ()
+@property(nonatomic)BOOL allowLocation;
+
 @end
 
 @implementation DataManger
@@ -214,6 +216,49 @@
     else{
         completionBlock(YES);
     }
+}
+#pragma mark Get User Location Availability
+-(void)getLocationUpdatewithCompletionBlock:(void(^)(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status,NSString* error))completionBlock
+{
+    
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyCity
+                                       timeout:10
+                          delayUntilAuthorized:YES
+                                         block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                             
+                                             
+                                             if (status == INTULocationStatusSuccess) {
+                                                 self.allowLocation = YES;
+                                                 completionBlock(currentLocation,achievedAccuracy,status,nil);
+                                             }
+                                             else if (status == INTULocationStatusTimedOut) {
+                                                 self.allowLocation = NO;
+                                                 completionBlock(nil,achievedAccuracy,status,@"Location request timed out.");
+                                             }
+                                             else {
+                                                 self.allowLocation = NO;
+                                                 // An error occurred
+                                                 if (status == INTULocationStatusServicesNotDetermined) {
+                                                     completionBlock(nil,achievedAccuracy,status,@"Error: User has not responded to the permissions alert.");
+                                                     
+                                                 } else if (status == INTULocationStatusServicesDenied) {
+                                                     completionBlock(nil,achievedAccuracy,status,@"Error: User has denied this app permissions to access device location.");
+                                                     
+                                                 } else if (status == INTULocationStatusServicesRestricted) {
+                                                     completionBlock(nil,achievedAccuracy,status,@"Error: User is restricted from using location services by a usage policy.");
+                                                     
+                                                 } else if (status == INTULocationStatusServicesDisabled) {
+                                                     completionBlock(nil,achievedAccuracy,status,@"Error: Location services are turned off for all apps on this device.");
+                                                     
+                                                 } else {
+                                                     completionBlock(nil,achievedAccuracy,status,@"An unknown error occurred.\n(Are you using iOS Simulator with location set to 'None'?)");
+                                                 }
+                                             }
+                                             
+                                             //strongSelf.locationRequestID = NSNotFound;
+                                         }];
+    
 }
 
 @end
