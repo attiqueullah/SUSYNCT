@@ -9,7 +9,7 @@
 #import "EventsViewController.h"
 
 @interface EventsViewController ()
-@property (weak, nonatomic) IBOutlet UICollectionView *tableView;
+
 @property(nonatomic,strong)NSMutableArray* friendsArr;
 @end
 
@@ -37,36 +37,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma CollectionView Delegate
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-    
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return 3;
-    
-}
-    
--(LabelCollectionCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    LabelCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
-    return cell;
-    
-}
-    
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self goToEventDetail];
-    
-}
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-    }
-    
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(([UIScreen mainScreen].bounds.size.width-4)/2.5,([UIScreen mainScreen].bounds.size.width-4)/2.5);
-}
     
 @end

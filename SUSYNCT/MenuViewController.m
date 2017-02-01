@@ -391,7 +391,8 @@
     _presentedRow = indexPath.row;
     _presentedSection = indexPath.section;
     
-    if (indexPath.row!=0) {
+    if (indexPath.row!=0 && selectedMenu !=3) {
+        
         NSMutableArray* arr = [NSMutableArray new];
         for (int i=1; i<=3; i++) {
             [arr addObject:[NSIndexPath indexPathForRow:i inSection:1]];
