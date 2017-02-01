@@ -9,7 +9,10 @@
 #import "ScheduleSetupController.h"
 #import "LabelCollectionCell.h"
 #import "NewScheduleControllerViewController.h"
+
 @interface ScheduleSetupController ()
+
+@property (weak, nonatomic) IBOutlet UICollectionView *dayCollectionView;
 @property (weak, nonatomic) IBOutlet UITableView *termCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *coursesCollection;
 @property (weak, nonatomic) IBOutlet UICollectionView *courseCollectionView;
@@ -28,6 +31,10 @@
 @property(nonatomic,strong)NSMutableArray* coursesArr;
 @property(nonatomic,strong)TermsInfo* termSelected;
 @property(nonatomic,strong)NSArray* subCoursesSection;
+@property(nonatomic,strong)NSMutableArray* weekDays;
+@property (weak, nonatomic) IBOutlet UIView *departmentView;
+@property(nonatomic,strong)NSMutableArray* selWeekDays;
+@property(nonatomic,strong)EventInfo* event;
 @end
 
 
@@ -38,11 +45,14 @@
     // Do any additional setup after loading the view.
     self.termsArr = [NSMutableArray new];
     self.departments = [NSMutableArray new];
+    self.selWeekDays = [NSMutableArray new];
+    self.event = [EventInfo new];
     self.indSemesterIndex = 1;
     [self.tblDepartments setHidden:YES];
+    self.departmentView.hidden = YES;
    // self.departmentCollectionView.layer.borderColor =[UIColor blackColor].CGColor;
    // self.departmentCollectionView.layer.borderWidth = 2.0;
-    
+    [self getWeekDays];
     [self getTerms];
     
 }
@@ -62,9 +72,23 @@
     if ([segue.identifier isEqualToString:@"new_schedule"]) {
         NewScheduleControllerViewController*vc = segue.destinationViewController;
         vc.str_title = @"Setup Class";
+        self.event.term = self.termSelected;
+        self.event.course = sender;
+        self.event.type = Course;
+        vc.event = self.event;
     }
 }
 
+#pragma mark Get Week Days
+-(void)getWeekDays
+{
+    self.weekDays = [NSMutableArray new];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    self.weekDays = [[dateFormatter veryShortWeekdaySymbols] mutableCopy];
+    [self.weekDays removeObjectAtIndex:0];
+    [self.weekDays removeLastObject];
+     self.selWeekDays = [NSMutableArray arrayWithArray:self.weekDays];
+}
 #pragma mark WEBAPI CALLS
 -(void)getTerms
 {
@@ -89,6 +113,7 @@
         }
         [self.termCollectionView reloadData];
         [self getDepartments:self.termsArr[0]];
+        
     }];
 
 }
@@ -104,8 +129,12 @@
 }
 -(void)getClasses:(DepartmentInfo*)dep
 {
+    self.event.department = dep;
     NSString* classe = [NSString stringWithFormat:@"%@/%@",dep.department_code,self.termSelected.term];
     [DATAMANAGER getClassesWithId:classe WithCompletionBlock:^(NSArray* courses , NSError* error){
+        if (courses.count>0) {
+            self.departmentView.hidden = false;
+        }
         self.coursesArr = [courses mutableCopy];
         [self.coursesCollection reloadData];
     }];
@@ -120,10 +149,11 @@
     
     if(collectionView == self.courseCollectionView)
     {
-        if (self.filterCourses==nil) {
-            return self.subCoursesSection.count;
-        }
         return self.filterCourses.count;
+    }
+    if(collectionView == self.dayCollectionView)
+    {
+        return self.weekDays.count;
     }
     return self.coursesArr.count;
     
@@ -142,6 +172,17 @@
         cell.lblInput2.text = info.title;
         cell.lblInput3.text = [NSString stringWithFormat:@"%@",info.day];
         cell.lblInput4.text = [NSString stringWithFormat:@"%@-%@",info.start_time,info.end_time];
+        return cell;
+    }
+    else if(collectionView == self.dayCollectionView)
+    {
+        LabelCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DayCollectionCell" forIndexPath:indexPath];
+        cell.lblInput2.text = self.weekDays[indexPath.row];
+        cell.lblInput2.layer.borderColor = [UIColor blackColor].CGColor;
+        cell.lblInput2.layer.borderWidth = 1.0;
+        cell.lblInput2.backgroundColor = [UIColor blackColor];
+        cell.lblInput2.textColor = [UIColor whiteColor];
+
         return cell;
     }
     else
@@ -171,7 +212,24 @@
     
     if(collectionView == self.courseCollectionView)
     {
-        [self performSegueWithIdentifier:@"new_schedule" sender:self];
+        [self performSegueWithIdentifier:@"new_schedule" sender:self.filterCourses[indexPath.row]];
+    }
+    else if(collectionView == self.dayCollectionView)
+    {
+        LabelCollectionCell *cell = (LabelCollectionCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        if ([self.selWeekDays containsObject:self.weekDays[indexPath.row]]) {
+            [self.selWeekDays removeObject:self.weekDays[indexPath.row]];
+            cell.lblInput2.backgroundColor = [UIColor whiteColor];
+            cell.lblInput2.textColor = [UIColor blackColor];
+        }
+        else
+        {
+            [self.selWeekDays addObject:self.weekDays[indexPath.row]];
+            cell.lblInput2.backgroundColor = [UIColor blackColor];
+            cell.lblInput2.textColor = [UIColor whiteColor];
+        }
+        
+        [self filterCourses:self.courseSearch.text];
     }
     else
     {
@@ -180,6 +238,7 @@
         cell.lblInput1.backgroundColor = [UIColor blackColor];
         cell.lblInput1.textColor = [UIColor whiteColor];
         self.subCoursesSection = info.sectionData;
+        self.filterCourses = info.sectionData;
         [self.courseCollectionView reloadData];
     }
     
@@ -188,6 +247,10 @@
     if(collectionView == self.courseCollectionView)
     {
         
+    }
+    else if(collectionView == self.dayCollectionView)
+    {
+       
     }
     else
     {
@@ -200,10 +263,16 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     if(collectionView == self.courseCollectionView)
     {
         return CGSizeMake(160,76);
     }
+    if(collectionView == self.dayCollectionView)
+    {
+        return CGSizeMake(40,40);
+    }
+
     return CGSizeMake(100, 40);
 }
 
@@ -264,6 +333,8 @@
         LeftTableViewCell *cell = (LeftTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_CHECKMARK colors:@[[UIColor blackColor]]];
         TermsInfo* trm = self.termsArr[indexPath.row];
+        self.departmentView.hidden = true;
+        self.departmentSearch.text = @"";
         [self getDepartments:trm];
     }
     else
@@ -294,16 +365,16 @@
         NSArray *filteredArray = [self.departments filteredArrayUsingPredicate:namePredicate];
         self.filterDepartments = filteredArray;
         if (filteredArray.count>0) {
-            [self.tblDepartments setHidden:NO];
+            [UIView animateWithDuration:3.0f animations:^{
+                [self.tblDepartments setHidden:NO];
+            }];
+            
         }
         [self.tblDepartments reloadData];
     }
     else
     {
-        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.title CONTAINS[cd] %@) OR (SELF.dclass_code CONTAINS[cd] %@) ", searchText,searchText];
-        NSArray *filteredArray = [self.subCoursesSection filteredArrayUsingPredicate:namePredicate];
-        self.filterCourses = filteredArray;
-        [self.courseCollectionView reloadData];
+        [self filterCourses:searchText];
     }
     
 }
@@ -320,12 +391,30 @@
     }
     else
     {
-        
+        [self filterCourses:searchBar.text];
     }
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [self.tblDepartments setHidden:YES];
+}
+
+-(void)filterCourses:(NSString*)searchText
+{
+    NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.title CONTAINS[cd] %@) OR (SELF.dclass_code CONTAINS[cd] %@) ", searchText,searchText];
+    NSArray *filteredArray = [self.subCoursesSection filteredArrayUsingPredicate:namePredicate];
+    
+    NSMutableArray* arrPredicates = [NSMutableArray new];
+    
+    for (NSString* strDay in self.selWeekDays) {
+        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.day CONTAINS[cd] %@)", strDay];
+        [arrPredicates addObject:namePredicate];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:arrPredicates];
+    NSArray *filteredDayArray = [searchText.length>0?filteredArray:self.subCoursesSection filteredArrayUsingPredicate:predicate ];
+    
+    self.filterCourses = filteredDayArray;
+    [self.courseCollectionView reloadData];
 }
 @end

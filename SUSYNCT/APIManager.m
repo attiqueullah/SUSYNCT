@@ -152,16 +152,35 @@
     
 }
 #pragma mark save Object
--(void)saveParseDataWithObject:(PFObject*)obj withCompletionBlock:(void(^)(BOOL succeeded, NSError *error))completionBlock
+-(void)saveParseDataWithObject:(PFObject*)obj WithAcknowledgment:(BOOL)ack inController:(UIViewController*)controller withCompletionBlock:(void(^)(BOOL succeeded, NSError *error))completionBlock
 {
-    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            completionBlock(YES,nil);
-        }
-        else {
-            completionBlock(NO,error);
-        }
-    }];
+    [DATAMANAGER checkInterneConnectivitywithCompletionBlock:^(BOOL isavailable)
+     {
+         if (!isavailable) {
+             [DATAMANAGER showWithStatus:INTERNET withType:ERROR];
+             controller.view.userInteractionEnabled = YES;
+             return ;
+         }
+         if (ack) {
+              [DATAMANAGER showWithStatus:@"Please wait..." withType:STATUS];
+             [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                 if (!error) {
+                     [SVProgressHUD dismiss];
+                     completionBlock(YES,nil);
+                 }
+                 else {
+                     completionBlock(NO,error);
+                 }
+             }];
+         }
+         else
+         {
+             [obj saveEventually:nil];
+             completionBlock(YES,nil);
+         }
+     }];
+    
+    
 }
 
 #pragma mark Intialize Push Method

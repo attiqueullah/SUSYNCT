@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DepartmentInfo : NSObject
+@property(nonatomic,strong)NSDictionary* depDic;
 @property(nonatomic,strong)NSString* department_name;
 @property(nonatomic,strong)NSString* department_type;
 @property(nonatomic,strong)NSString* department_code;

@@ -62,6 +62,7 @@
                 dep.department_name = dic[@"name"];
                 dep.department_type = dic[@"type"];
                 dep.department_code = dic[@"code"];
+                dep.depDic = dic;
                 [departments addObject:dep];
             }
             completionBlock(departments,nil);
@@ -97,6 +98,7 @@
                     for (NSDictionary* subDic in course.courseData[@"SectionData"]) {
                         SubCourseInfo* subInfo = [SubCourseInfo new];
                         subInfo.courseData = course.courseData;
+                        subInfo.subCourseDic = subDic;
                         subInfo.dclass_code = subDic[@"dclass_code"];
                         subInfo.location = subDic[@"location"];
                         subInfo.title = subDic[@"title"];
@@ -260,5 +262,27 @@
                                          }];
     
 }
-
+#pragma mark Get Day 
+-(NSString*)getDaysFetch:(NSString*)day
+{
+    if ([day isEqualToString:@"H"]) {
+        return @"Sunday";
+    }
+    if ([day isEqualToString:@"M"]) {
+        return @"Monday";
+    }
+    if ([day isEqualToString:@"T"]) {
+        return @"Tuesday";
+    }
+    if ([day isEqualToString:@"W"]) {
+        return @"Wednesday";
+    }
+    if ([day isEqualToString:@"TH"]) {
+        return @"Thursday";
+    }
+    if ([day isEqualToString:@"F"]) {
+        return @"Friday";
+    }
+    return @"Thursday";
+}
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import "INTULocationManager.h"
 
 typedef NS_ENUM(NSUInteger, ProgressHUDType) {
     STATUS = 1,
@@ -15,6 +17,29 @@ typedef NS_ENUM(NSUInteger, ProgressHUDType) {
     IMAGE,
     PROGRESS,
     INFO
+};
+
+typedef NS_ENUM(NSUInteger, DayView)
+{
+    Monday   = 0,
+    Tuesday  = 1,
+    Wednesday= 2,
+    Thrusday = 3,
+    Friday   = 4,
+    Saturday = 5,
+    Sunday   = 6,
+};
+typedef NS_ENUM(NSUInteger, EventType)
+{
+    Course   = 0,
+    Event    = 1,
+    Other    = 2,
+};
+typedef NS_ENUM(NSUInteger, Status)
+{
+    Default      = 0,
+    Active       = 1,
+    Inactive     = 2,
 };
 
 @interface DataManger : NSObject

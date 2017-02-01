@@ -17,7 +17,7 @@
 -(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andStudent:(BOOL)isStudent andFirstName:(NSString*)fname andLastName:(NSString*)lname inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock;
 #pragma  mark Login Email Method
 -(void)signinWithUsername:(NSString*)username andPassword:(NSString*)password  inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock;
--(void)saveParseDataWithObject:(PFObject*)obj withCompletionBlock:(void(^)(BOOL succeeded, NSError *error))completionBlock;
+-(void)saveParseDataWithObject:(PFObject*)obj WithAcknowledgment:(BOOL)ack inController:(UIViewController*)controller withCompletionBlock:(void(^)(BOOL succeeded, NSError *error))completionBlock;
 #pragma mark Intialize Push Method
 -(void)setPushNotifications;
 #pragma mark Intialize Get Location Method

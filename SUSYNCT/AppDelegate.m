@@ -84,7 +84,7 @@
 {
     PFUser* user = [PFUser currentUser];
     user[@"usrLocation"] = dict;
-    [PARSEMANAGER saveParseDataWithObject:user withCompletionBlock:^(BOOL isSave , NSError* error){
+    [PARSEMANAGER saveParseDataWithObject:user WithAcknowledgment:NO inController:nil withCompletionBlock:^(BOOL isSave , NSError* error){
         
     }];
     

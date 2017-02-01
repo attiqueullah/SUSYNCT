@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CourseInfo.h"
 @interface SubCourseInfo : CourseInfo
+@property(nonatomic,strong)NSDictionary* subCourseDic;
 @property(nonatomic,strong)NSString* dclass_code;
 @property(nonatomic,strong)NSString* location;
 @property(nonatomic,strong)NSString* title;

@@ -88,6 +88,9 @@
 		0296A2181E01236300E0A853 /* APIS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2171E01236300E0A853 /* APIS.m */; };
 		0296A21B1E01768300E0A853 /* DepartmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A21A1E01768300E0A853 /* DepartmentInfo.m */; };
 		0296A2211E01811400E0A853 /* CourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2201E01811400E0A853 /* CourseInfo.m */; };
+		02A8CDE11E407CB700D7718A /* KTCenterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CDE01E407CB700D7718A /* KTCenterFlowLayout.m */; };
+		02A8CDE41E41C85300D7718A /* EventInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CDE31E41C85300D7718A /* EventInfo.m */; };
+		02A8CDF91E41DF2B00D7718A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A8CDF81E41DF2B00D7718A /* AssetsLibrary.framework */; };
 		ED20CB5F24E0B9DA53B0C526 /* libPods-SUSYNCT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD78D341009531A24365440 /* libPods-SUSYNCT.a */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +221,11 @@
 		0296A21A1E01768300E0A853 /* DepartmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentInfo.m; sourceTree = "<group>"; };
 		0296A21F1E01811400E0A853 /* CourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInfo.h; sourceTree = "<group>"; };
 		0296A2201E01811400E0A853 /* CourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInfo.m; sourceTree = "<group>"; };
+		02A8CDDF1E407CB700D7718A /* KTCenterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTCenterFlowLayout.h; sourceTree = "<group>"; };
+		02A8CDE01E407CB700D7718A /* KTCenterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTCenterFlowLayout.m; sourceTree = "<group>"; };
+		02A8CDE21E41C85300D7718A /* EventInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInfo.h; sourceTree = "<group>"; };
+		02A8CDE31E41C85300D7718A /* EventInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfo.m; sourceTree = "<group>"; };
+		02A8CDF81E41DF2B00D7718A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.release.xcconfig"; sourceTree = "<group>"; };
 		7CD78D341009531A24365440 /* libPods-SUSYNCT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SUSYNCT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8310E8CC9562C3269CB29B0 /* Pods-SUSYNCT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A8CDF91E41DF2B00D7718A /* AssetsLibrary.framework in Frameworks */,
 				02414B681E13C9AB0060C26F /* MapKit.framework in Frameworks */,
 				0231A6011DFA989A003D63DB /* libsqlite3.tbd in Frameworks */,
 				0231A5FF1DFA988E003D63DB /* libz.tbd in Frameworks */,
@@ -313,6 +322,8 @@
 				0264A1051E05332F000ED0FC /* SubCourseInfo.m */,
 				022DEFED1E3B9D830046ECF9 /* TermsInfo.h */,
 				022DEFEE1E3B9D830046ECF9 /* TermsInfo.m */,
+				02A8CDE21E41C85300D7718A /* EventInfo.h */,
+				02A8CDE31E41C85300D7718A /* EventInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -446,6 +457,8 @@
 		0231A5E81DFA9828003D63DB /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				02A8CDDF1E407CB700D7718A /* KTCenterFlowLayout.h */,
+				02A8CDE01E407CB700D7718A /* KTCenterFlowLayout.m */,
 				0231A6021DFAE277003D63DB /* TTTAttributedLabel */,
 				0231A5E51DFA8A63003D63DB /* Reachability.h */,
 				0231A5E61DFA8A63003D63DB /* Reachability.m */,
@@ -692,6 +705,7 @@
 		AA65A06201F9C2C8AC37A373 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02A8CDF81E41DF2B00D7718A /* AssetsLibrary.framework */,
 				02414B671E13C9AB0060C26F /* MapKit.framework */,
 				0231A6001DFA989A003D63DB /* libsqlite3.tbd */,
 				0231A5FE1DFA988E003D63DB /* libz.tbd */,
@@ -876,6 +890,7 @@
 				023A85E21E14FC5900D291FC /* GroupDetailController.m in Sources */,
 				0264A1061E05332F000ED0FC /* SubCourseInfo.m in Sources */,
 				028C047F1E32655C009F04C2 /* EmailVerificationController.m in Sources */,
+				02A8CDE11E407CB700D7718A /* KTCenterFlowLayout.m in Sources */,
 				0264A12B1E0A5548000ED0FC /* SportsViewController.m in Sources */,
 				0231A5E41DFA7B4B003D63DB /* UserInfo.m in Sources */,
 				023A85DF1E14F93400D291FC /* SearchGroupController.m in Sources */,
@@ -886,6 +901,7 @@
 				023A86071E17954800D291FC /* CalendarSettingsController.m in Sources */,
 				023A85F21E165AEC00D291FC /* SettingsViewController.m in Sources */,
 				0231A5D31DF99231003D63DB /* SignUpViewController.m in Sources */,
+				02A8CDE41E41C85300D7718A /* EventInfo.m in Sources */,
 				022DEFEF1E3B9D830046ECF9 /* TermsInfo.m in Sources */,
 				0231A5991DF93E65003D63DB /* AppDelegate.m in Sources */,
 				023A85FA1E178FA200D291FC /* HelpViewController.m in Sources */,
@@ -970,7 +986,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = "/Users/mymac/Desktop/Smart Minds/SUSYNCT/SUSYNCT/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1017,7 +1033,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "/Users/mymac/Desktop/Smart Minds/SUSYNCT/SUSYNCT/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1036,6 +1052,7 @@
 			baseConfigurationReference = F8310E8CC9562C3269CB29B0 /* Pods-SUSYNCT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1055,6 +1072,7 @@
 			baseConfigurationReference = 7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

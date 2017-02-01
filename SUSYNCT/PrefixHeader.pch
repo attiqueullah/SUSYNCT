@@ -9,6 +9,11 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <Parse/Parse.h>
@@ -56,6 +61,7 @@
 #import "CourseInfo.h"
 #import "SubCourseInfo.h"
 #import "TermsInfo.h"
+#import "EventInfo.h"
 
 #pragma mark Storyboards
 #define MAIN         [UIStoryboard storyboardWithName:@"Main"                    bundle:nil]
@@ -74,6 +80,10 @@
 #define APPID          @"tjMZ2kybaLyosuQbpOEmxJlMboqr1WSusr4dLhz9"
 #define CLIENTID       @"OPtVkMuF4LDzkrInfCXwJMKqgW7o9NKwXhS549mk"
 #define SERVER         @"https://parseapi.back4app.com/"
+
+#pragma mark PARSE Tables
+#define PARSE_USER    [PFUser currentUser]
+#define PARSE_EVENTS  @"Events"
 
 #pragma mark Constants
 #define DATAMANAGER  [DataManger  sharedInstance]

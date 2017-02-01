@@ -6,10 +6,9 @@
 //  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "SubCourseInfo.h"
+#import "EventInfo.h"
 
-@interface NewScheduleControllerViewController : BaseViewController
+@interface NewScheduleControllerViewController : UIViewController
 @property(nonatomic,strong)NSString* str_title;
-@property(nonatomic,strong)SubCourseInfo* course;
+@property(nonatomic,strong)EventInfo* event;
 @end
