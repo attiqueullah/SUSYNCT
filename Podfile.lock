@@ -42,6 +42,7 @@ PODS:
   - INTULocationManager (4.2.0)
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManager (4.0.7)
+  - LNICoverFlowLayout (0.1.1)
   - MSCellAccessory (1.1.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - INTULocationManager
   - IQDropDownTextField
   - IQKeyboardManager
+  - LNICoverFlowLayout
   - MSCellAccessory
   - ParseFacebookUtilsV4
   - SVProgressHUD
@@ -74,12 +76,13 @@ SPEC CHECKSUMS:
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  LNICoverFlowLayout: e6cc37c22c136126f7ea871df1ddc6631a4cdb7f
   MSCellAccessory: 8265f3cd2386c1f372da00232472605ab11426e4
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   SVProgressHUD: 1127180503b9a308ddf7006f3cc58fc05cc1092d
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: d8bed24b68c7687852d0ca32e7338db38028dc47
+PODFILE CHECKSUM: dd6a0ede8c0789b41b084fbf99de9d36f6be75a8
 
 COCOAPODS: 1.1.1

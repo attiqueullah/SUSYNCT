@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LNICoverFlowLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MSCellAccessory.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,72 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0AC55E754182E1FCF070AC7F74379523</key>
+		<key>254BCBF5BB02ED2B6CC8365B73E798C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0D1C2F53730DA7D7BC55391497EAE126</key>
+		<key>2A52779AA0BD86BA0CEB8753126ED2FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D93B23D8EDE07B5BC9B234451737545</key>
+		<key>3C4E843C11F08B87DE658C628AFA3253</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C7B23B3FE0CE1A6131C7E09B3F47DA3</key>
+		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>580C4989D0CBD86F26C66310C060C28E</key>
+		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DC7D7B380A5FEAE815A0DDD986A0174</key>
+		<key>7E683DB16DC4643221505F9973C9BC36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>663F9A72B8A45AA524A67F5CE7263B65</key>
+		<key>9904E9A24C68E525F9D3BEA9BBB64F49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9650B5ADCE86F1A055FAFC635284BDB5</key>
+		<key>A73E6511FE79AF9A7008A7C0FBF5C78C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A6D6019101D3799868BBBCC9EDDEBBA</key>
+		<key>BC5000D645EEAF961C85907CDC796FE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7EC4BFC380516D4948B2EE63746BC8B</key>
+		<key>C36CB2CB977A4E7D954935096D00A1ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C237DBBA9AFCE2025C5AC3BD276A535F</key>
+		<key>C6AD32235C68E82618C442A5559F12D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB06743FD599C11559E52D2D552AEE80</key>
+		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB5B79D96267F95CF320EF940938DDA4</key>
+		<key>E0DDA3A8D75D63EA00BE0378E8648A06</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAC4DBB4F79DBE0FA8D0658CF4970DD0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

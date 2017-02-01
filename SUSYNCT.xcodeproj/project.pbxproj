@@ -91,7 +91,7 @@
 		02A8CDE11E407CB700D7718A /* KTCenterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CDE01E407CB700D7718A /* KTCenterFlowLayout.m */; };
 		02A8CDE41E41C85300D7718A /* EventInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8CDE31E41C85300D7718A /* EventInfo.m */; };
 		02A8CDF91E41DF2B00D7718A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A8CDF81E41DF2B00D7718A /* AssetsLibrary.framework */; };
-		ED20CB5F24E0B9DA53B0C526 /* libPods-SUSYNCT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD78D341009531A24365440 /* libPods-SUSYNCT.a */; };
+		5570A2BDEB5ABA2F9E1F7577 /* Pods_SUSYNCT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAA88506FBAF02FDEB1D54E /* Pods_SUSYNCT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,7 +227,7 @@
 		02A8CDE31E41C85300D7718A /* EventInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfo.m; sourceTree = "<group>"; };
 		02A8CDF81E41DF2B00D7718A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.release.xcconfig"; sourceTree = "<group>"; };
-		7CD78D341009531A24365440 /* libPods-SUSYNCT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SUSYNCT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CAA88506FBAF02FDEB1D54E /* Pods_SUSYNCT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SUSYNCT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8310E8CC9562C3269CB29B0 /* Pods-SUSYNCT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,7 +247,7 @@
 				0231A5F31DFA9862003D63DB /* CoreGraphics.framework in Frameworks */,
 				0231A5F11DFA9854003D63DB /* CFNetwork.framework in Frameworks */,
 				0231A5EF1DFA984D003D63DB /* AudioToolbox.framework in Frameworks */,
-				ED20CB5F24E0B9DA53B0C526 /* libPods-SUSYNCT.a in Frameworks */,
+				5570A2BDEB5ABA2F9E1F7577 /* Pods_SUSYNCT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +716,7 @@
 				0231A5F21DFA9862003D63DB /* CoreGraphics.framework */,
 				0231A5F01DFA9854003D63DB /* CFNetwork.framework */,
 				0231A5EE1DFA984D003D63DB /* AudioToolbox.framework */,
-				7CD78D341009531A24365440 /* libPods-SUSYNCT.a */,
+				7CAA88506FBAF02FDEB1D54E /* Pods_SUSYNCT.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
