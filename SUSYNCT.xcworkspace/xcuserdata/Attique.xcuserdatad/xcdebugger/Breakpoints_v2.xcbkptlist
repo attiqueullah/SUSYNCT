@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/EventDetailController.m"
-            timestampString = "507636942.893595"
+            filePath = "Pods/LNICoverFlowLayout/LNICoverFlowLayout/Classes/LNICoverFlowLayout.swift"
+            timestampString = "507716254.176594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "layoutAttributesForItemAtIndexPath(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

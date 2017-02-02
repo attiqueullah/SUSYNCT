@@ -84,6 +84,9 @@
 		0264A1221E0918EF000ED0FC /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0264A1211E0918EF000ED0FC /* LeftTableViewCell.m */; };
 		0264A1271E0A54A2000ED0FC /* Sports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0264A1261E0A54A2000ED0FC /* Sports.storyboard */; };
 		0264A12B1E0A5548000ED0FC /* SportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0264A12A1E0A5548000ED0FC /* SportsViewController.m */; };
+		0268D8B11E4300E600B0DBEC /* 3dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 0268D8B01E4300E600B0DBEC /* 3dots.png */; };
+		0268D8B41E430F7400B0DBEC /* DayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0268D8B31E430F7400B0DBEC /* DayTableViewCell.m */; };
+		0268D8B71E431F0300B0DBEC /* WeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0268D8B61E431F0300B0DBEC /* WeekViewController.m */; };
 		028C047F1E32655C009F04C2 /* EmailVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028C047E1E32655C009F04C2 /* EmailVerificationController.m */; };
 		0296A2181E01236300E0A853 /* APIS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2171E01236300E0A853 /* APIS.m */; };
 		0296A21B1E01768300E0A853 /* DepartmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A21A1E01768300E0A853 /* DepartmentInfo.m */; };
@@ -214,6 +217,11 @@
 		0264A1261E0A54A2000ED0FC /* Sports.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sports.storyboard; sourceTree = "<group>"; };
 		0264A1291E0A5548000ED0FC /* SportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsViewController.h; sourceTree = "<group>"; };
 		0264A12A1E0A5548000ED0FC /* SportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsViewController.m; sourceTree = "<group>"; };
+		0268D8B01E4300E600B0DBEC /* 3dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dots.png; sourceTree = "<group>"; };
+		0268D8B21E430F7400B0DBEC /* DayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTableViewCell.h; sourceTree = "<group>"; };
+		0268D8B31E430F7400B0DBEC /* DayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTableViewCell.m; sourceTree = "<group>"; };
+		0268D8B51E431F0300B0DBEC /* WeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekViewController.h; sourceTree = "<group>"; };
+		0268D8B61E431F0300B0DBEC /* WeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekViewController.m; sourceTree = "<group>"; };
 		028C047D1E32655C009F04C2 /* EmailVerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailVerificationController.h; sourceTree = "<group>"; };
 		028C047E1E32655C009F04C2 /* EmailVerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailVerificationController.m; sourceTree = "<group>"; };
 		0296A2161E01236300E0A853 /* APIS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
@@ -397,6 +405,7 @@
 		0231A5941DF93E65003D63DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0268D8B01E4300E600B0DBEC /* 3dots.png */,
 				023A85F51E16ACC000D291FC /* letter.jpg */,
 				023A85EB1E150C0C00D291FC /* cross.png */,
 				023A85EC1E150C0C00D291FC /* tick.jpg */,
@@ -444,6 +453,8 @@
 				0231A5AD1DF979BA003D63DB /* TextFieldCell.m */,
 				02311F2B1DFFFEA1000F9FFD /* LabelCollectionCell.h */,
 				02311F2C1DFFFEA1000F9FFD /* LabelCollectionCell.m */,
+				0268D8B21E430F7400B0DBEC /* DayTableViewCell.h */,
+				0268D8B31E430F7400B0DBEC /* DayTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -488,6 +499,8 @@
 				02414B631E13A2930060C26F /* EventDetailController.m */,
 				02A8CDFA1E41E9D100D7718A /* DayViewController.h */,
 				02A8CDFB1E41E9D100D7718A /* DayViewController.m */,
+				0268D8B51E431F0300B0DBEC /* WeekViewController.h */,
+				0268D8B61E431F0300B0DBEC /* WeekViewController.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -830,6 +843,7 @@
 				0231A5A11DF93E65003D63DB /* Assets.xcassets in Resources */,
 				023A85ED1E150C0C00D291FC /* cross.png in Resources */,
 				023A85EE1E150C0C00D291FC /* tick.jpg in Resources */,
+				0268D8B11E4300E600B0DBEC /* 3dots.png in Resources */,
 				0231A59F1DF93E65003D63DB /* Main.storyboard in Resources */,
 				023A85FF1E178FBF00D291FC /* Help.storyboard in Resources */,
 			);
@@ -891,6 +905,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0264A1221E0918EF000ED0FC /* LeftTableViewCell.m in Sources */,
+				0268D8B41E430F7400B0DBEC /* DayTableViewCell.m in Sources */,
 				025BA56F1DFAF8E600670EBD /* UIColor+HexString.m in Sources */,
 				023A85E21E14FC5900D291FC /* GroupDetailController.m in Sources */,
 				0264A1061E05332F000ED0FC /* SubCourseInfo.m in Sources */,
@@ -915,6 +930,7 @@
 				02414B641E13A2930060C26F /* EventDetailController.m in Sources */,
 				02A8CDFC1E41E9D100D7718A /* DayViewController.m in Sources */,
 				0296A2211E01811400E0A853 /* CourseInfo.m in Sources */,
+				0268D8B71E431F0300B0DBEC /* WeekViewController.m in Sources */,
 				0231A5961DF93E65003D63DB /* main.m in Sources */,
 				0231A60C1DFAE6C8003D63DB /* TermsViewController.m in Sources */,
 				02414B5C1E126BEB0060C26F /* ChatViewController.m in Sources */,

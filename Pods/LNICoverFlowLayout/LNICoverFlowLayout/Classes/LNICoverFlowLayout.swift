@@ -121,8 +121,7 @@ public class LNICoverFlowLayout:UICollectionViewFlowLayout {
     override public func layoutAttributesForItemAtIndexPath(indexPath:NSIndexPath)->UICollectionViewLayoutAttributes {
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath:indexPath)
         
-        attributes.size = CGSize(width: 150,
-                                 height: 60)
+        attributes.size = self.itemSize
         attributes.center = CGPoint(x: collectionViewWidth()*CGFloat(indexPath.row) + collectionViewWidth(),
                                     y: collectionViewHeight()/2)
         

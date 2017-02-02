@@ -9,7 +9,9 @@
 #import "EventsViewController.h"
 
 @interface EventsViewController ()
-
+@property (weak, nonatomic) IBOutlet UIView *dayViewContainer;
+@property (weak, nonatomic) IBOutlet UIView *weekViewContainer;
+@property (weak, nonatomic) IBOutlet UIView *monthViewContainer;
 @property(nonatomic,strong)NSMutableArray* friendsArr;
 @end
 
@@ -17,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dayViewContainer.hidden = YES;
     // Do any additional setup after loading the view.
 }
 

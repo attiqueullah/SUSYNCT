@@ -45,9 +45,13 @@
 #import "CalendarSettingsController.h"
 #import "INTULocationManager.h"
 
-#pragma mark Cells
+#pragma mark UITableView Cells
 #import "TextFieldCell.h"
 #import "LeftTableViewCell.h"
+#import "DayTableViewCell.h"
+
+
+#pragma mark UICollectionView Cells
 #import "LabelCollectionCell.h"
 
 #pragma mark Managers

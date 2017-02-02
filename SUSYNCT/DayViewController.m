@@ -24,10 +24,18 @@
     // Do any additional setup after loading the view.
     originalItemSize = self.customLayout.itemSize;
     originalCollectionViewSize = self.tableView.bounds.size;
+    
+    
     [self getWeekDays];
     
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self getCurrentWeekDay:[NSDate date]];
+    
+}
 -(void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
@@ -40,6 +48,7 @@
     self.customLayout.itemSize = CGSizeMake(self.tableView.bounds.size.width * originalItemSize.width / originalCollectionViewSize.width, self.tableView.bounds.size.height * originalItemSize.height / originalCollectionViewSize.height);
    
     [self setInitialValues];
+    
     
     [self.tableView setNeedsLayout];
     [self.tableView layoutIfNeeded];
@@ -56,12 +65,57 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark IBActions
+- (IBAction)btnEditDayView:(id)sender {
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // OK button tapped.
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // OK button tapped.
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Invite" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // OK button tapped.
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)getCurrentWeekDay:(NSDate*)dte
+{
+    [self.view layoutIfNeeded];
+    [self.tableView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[dte weekday] inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+}
 #pragma mark Get Week Days
 -(void)getWeekDays
 {
     self.weekDays = [NSMutableArray new];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     self.weekDays = [[dateFormatter weekdaySymbols] mutableCopy];
+    
 }
 
 
@@ -74,7 +128,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma CollectionView Delegate
+#pragma mark CollectionView Delegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -103,5 +157,31 @@
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
 }
 
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DayTableViewCell" forIndexPath:indexPath];
+    return cell;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 97.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"day_event_detail" sender:self];
+}
 @end
